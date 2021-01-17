@@ -81,8 +81,6 @@ public class Friends4Block {
 	        }
 	        check = false;
 		}while(!check);
-		
-
         return answer;
     }
 
