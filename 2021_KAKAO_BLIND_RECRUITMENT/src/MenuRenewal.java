@@ -61,15 +61,13 @@ public class MenuRenewal {
 					temp += list.get(i);
 				}
 			}
-//			char[]ch =  temp.toCharArray();
-//			Arrays.sort(ch);
-//			temp = "";
-//			for(char c : ch) temp += c;
+			
 			for(int i = 0; i < orders.length; i++) {
 				boolean check = true;
 				for(int j = 0; j < temp.length(); j++) {
 					if(!orders[i].contains(temp.charAt(j) + "")) {
 						check = false;
+						break;
 					}
 				}
 				if(check) {
