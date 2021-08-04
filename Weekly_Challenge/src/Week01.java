@@ -9,11 +9,11 @@ public class Week01 {
 	}
 	
 	public static long solution(int price, int money, int count) {
-        int cost = 0;
+        long cost = 0;
         for(int i = 1; i <= count; i++) {
         	cost += price * i;
         }
-        int result = money - cost;
+        long result = money - cost;
         if(result > 0) {
         	return 0;
         }else {
