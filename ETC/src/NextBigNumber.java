@@ -3,7 +3,37 @@ public class NextBigNumber {
 
 	public static void main(String[] args) {
 		int n = 6;
-		System.out.println(solution(n));
+		System.out.println(solution2(n));
+	}
+	
+	public static int solution2(int n) {
+		String num = Integer.toBinaryString(n);
+		int count = 0;
+		for(int i = 0; i < num.length(); i++) {
+			if(num.charAt(i) == '1') {
+				count++;
+			}
+		}
+		int chkNum = n + 1;
+		while(!check(count, chkNum)) {
+			chkNum++;
+		}
+		return Integer.parseInt(Integer.toBinaryString(chkNum),2);
+		
+	}
+	public static boolean check(int count, int b) {
+		String num = Integer.toBinaryString(b);
+		int count2 = 0;
+		for(int i = 0; i < num.length(); i++) {
+			if(num.charAt(i) == '1') {
+				count2++;
+			}
+		}
+		if(count == count2) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 	
 	public static int solution(int n) {
