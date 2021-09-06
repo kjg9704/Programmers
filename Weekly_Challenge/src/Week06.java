@@ -15,34 +15,29 @@ class Boxer implements Comparable<Boxer>{
 
 	@Override
 	public int compareTo(Boxer o) {
-		if(this.percent > o.percent) {
-			return -1;
-		}else if(this.percent < o.percent) {
-			return 1;
-		}else {
-			if(this.heavyWin > o.heavyWin) {
+		if(this.percent != o.percent) {
+			if(this.percent > o.percent) {
 				return -1;
-			}else if(this.heavyWin < o.heavyWin) {
-				return 1;
 			}else {
-				if(this.weight > o.weight) {
-					return -1;
-				}else if(this.weight < o.weight) {
-					return 1;
-				}else {
-					return this.num - o.num;
-				}
+				return 1;
 			}
 		}
+		if(this.heavyWin != o.heavyWin) {
+			return  o.heavyWin - this.heavyWin;
+		}
+		if(this.weight != o.weight) {
+			return  o.weight - this.weight;
+		}
+		return this.num - o.num;
 	}
 }
 public class Week06 {
 
 	public static void main(String[] args) {
-//		int[] weights = {50,82,75,120};
-//		String[] head2head = {"NLWL","WNLL","LWNW","WWLN"};
-		int[] weights = {60,70,60};
-		String[] head2head = {"NNN","NNN","NNN"};
+		int[] weights = {50,82,75,120};
+		String[] head2head = {"NLWL","WNLL","LWNW","WWLN"};
+//		int[] weights = {60,70,60};
+//		String[] head2head = {"NNN","NNN","NNN"};
 		for(int i : solution(weights, head2head)) {
 			System.out.print(i + " ");
 		}
@@ -66,7 +61,12 @@ public class Week06 {
         			}
         		}
         	}
-        	double percent = (double) win / (double) match;
+        	double percent;
+        	if(match == 0) {
+        		percent = 0;
+        	}else {
+        		percent = (double) win / (double) match;
+        	}
         	boxers[i] = new Boxer(i + 1, weights[i], percent, heavyWin);
         }
         Arrays.sort(boxers);
