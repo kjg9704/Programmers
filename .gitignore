@@ -151,3 +151,7 @@ $RECYCLE.BIN/
 
 # End of https://www.gitignore.io/api/java,macos,eclipse,windows
 *.snap
+*.resources
+*.prefs
+*.prefs
+*.xmi
